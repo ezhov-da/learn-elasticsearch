@@ -1,4 +1,4 @@
-package ru.sportmaster.elasticsearchtest
+package ru.ezhov.learnelasticsearch
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import org.springframework.stereotype.Repository

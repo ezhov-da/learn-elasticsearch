@@ -1,4 +1,4 @@
-package ru.sportmaster.elasticsearchtest
+package ru.ezhov.learnelasticsearch
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient
 import org.springframework.beans.factory.annotation.Value
@@ -56,12 +56,11 @@ class MyClientConfig(
 
     @Value("\${spring.elasticsearch.password}")
     private val password: String,
-
-    ) : ElasticsearchConfiguration() {
+) : ElasticsearchConfiguration() {
     override fun clientConfiguration(): ClientConfiguration {
         return ClientConfiguration
             .builder()
-            .connectedTo(urls)
+            .connectedTo(*urls.split(",").toTypedArray())
             .usingSsl()
             .withBasicAuth(username, password)
             .build()
